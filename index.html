@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ders Pomodoro Takip</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Ders Pomodoro Takip</h1>
+      <button id="settings-btn">Ayarlar</button>
+      <div class="select-group">
+        <label for="lesson">Ders Seç:</label>
+        <select id="lesson">
+          <option value="">Ders seçiniz</option>
+          <option value="Matematik">Matematik</option>
+          <option value="Fizik">Fizik</option>
+          <option value="Kimya">Kimya</option>
+          <option value="Biyoloji">Biyoloji</option>
+          <option value="Tarih">Tarih</option>
+        </select>
+        <label for="topic">Konu Seç:</label>
+        <select id="topic">
+          <option value="">Önce ders seçiniz</option>
+        </select>
+      </div>
+      <div class="timer-group">
+        <div id="timer-label">00:00</div>
+        <button id="start-btn">Başlat</button>
+        <button id="pause-btn">Duraklat</button>
+        <button id="reset-btn">Sıfırla</button>
+        <button id="fast-forward-btn" class="test-btn">10 Saniye İlerle</button>
+        <button id="finish-now-btn" class="test-btn">Hemen Bitir</button>
+      </div>
+      <button id="report-btn">Raporu Göster</button>
+      <div id="report-modal" class="modal">
+        <div class="modal-content report-modern">
+          <span class="close">&times;</span>
+          <h2>Çalışma Raporu</h2>
+          <div class="report-filters">
+            <button class="filter-btn" data-range="day">Günlük</button>
+            <button class="filter-btn" data-range="week">Haftalık</button>
+            <button class="filter-btn" data-range="month">Aylık</button>
+          </div>
+          <div id="report-content"></div>
+          <div class="charts-wrapper">
+            <canvas id="bar-chart" class="chart-canvas"></canvas>
+            <canvas id="pie-chart" class="chart-canvas"></canvas>
+            <canvas id="line-chart" class="chart-canvas"></canvas>
+          </div>
+        </div>
+      </div>
+      <div id="settings-modal" class="modal">
+        <div class="modal-content">
+          <span class="close-settings">&times;</span>
+          <h2>Ayarlar</h2>
+          <label>Pomodoro Süresi (dakika):
+            <input type="number" id="pomodoro-duration" min="1" max="120" value="25">
+          </label>
+          <label>Tema:
+            <select id="theme-select">
+              <option value="blue">Mavi</option>
+              <option value="red">Kırmızı</option>
+              <option value="orange">Turuncu</option>
+              <option value="black">Siyah</option>
+              <option value="default">Varsayılan</option>
+            </select>
+          </label>
+          <label>
+            <input type="checkbox" id="sound-enabled" checked>
+            Bildirim Sesi Açık
+          </label>
+          <button id="save-settings">Kaydet</button>
+        </div>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html> 
